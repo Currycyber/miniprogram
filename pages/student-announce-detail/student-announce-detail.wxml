@@ -1,0 +1,44 @@
+<view class="container" wx:if="{{item}}">
+  <!-- 类型横幅 -->
+  <view class="banner" style="background: {{item.typeMeta.color}};">
+    <view class="banner-type">{{item.typeMeta.label}}</view>
+    <view class="banner-read" wx:if="{{read}}">✓ 已读</view>
+  </view>
+
+  <!-- 标题区 -->
+  <view class="header">
+    <view class="title">{{item.title}}</view>
+    <view class="meta">
+      <text class="meta-author">发布人：{{item.author}}</text>
+      <text class="meta-time">{{item.publishedAt || item.createdAt}}</text>
+    </view>
+  </view>
+
+  <!-- 优先级徽章（仅高/中显示） -->
+  <view wx:if="{{item.priority === 'high'}}" class="priority-badge high">
+    重要
+  </view>
+  <view wx:elif="{{item.priority === 'medium'}}" class="priority-badge medium">
+    提醒
+  </view>
+
+  <!-- 正文 -->
+  <view class="content">
+    {{item.content}}
+  </view>
+
+  <!-- 底部信息 -->
+  <view class="footer">
+    <view class="footer-line">公告 ID：{{item.id}}</view>
+    <view class="footer-line">创建时间：{{item.createdAt}}</view>
+    <view class="footer-line" wx:if="{{item.publishedAt}}">发布时间：{{item.publishedAt}}</view>
+  </view>
+
+  <!-- 分享 -->
+  <button class="btn-share" open-type="share">分享给同学</button>
+
+</view>
+
+<view wx:else class="loading">
+  <view class="loading-text">加载中…</view>
+</view>

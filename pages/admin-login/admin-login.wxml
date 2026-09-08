@@ -1,0 +1,54 @@
+<view class="login-container">
+
+  <view class="login-brand">
+    <view class="brand-icon">A</view>
+    <view class="brand-name">综合素质测评管理后台</view>
+    <view class="brand-sub">喀什大学 · 学工部 / 校团委</view>
+  </view>
+
+  <view class="login-card">
+    <view class="form-item">
+      <text class="form-label">账号</text>
+      <input
+        class="form-input"
+        placeholder="请输入管理员账号"
+        placeholder-class="form-placeholder"
+        value="{{username}}"
+        bindinput="onUsernameInput"
+        confirm-type="next"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">密码</text>
+      <view class="form-input-wrap">
+        <input
+          class="form-input"
+          placeholder="请输入密码"
+          placeholder-class="form-placeholder"
+          password="{{!showPwd}}"
+          value="{{password}}"
+          bindinput="onPasswordInput"
+          confirm-type="done"
+          bindconfirm="onSubmit"
+        />
+        <text class="form-eye" bindtap="togglePwd">{{showPwd ? '🙈' : '👁'}}</text>
+      </view>
+    </view>
+
+    <button
+      class="login-btn {{submitting ? 'disabled' : ''}}"
+      bindtap="onSubmit"
+      disabled="{{submitting}}"
+    >{{submitting ? '登录中...' : '登 录'}}</button>
+
+    <view class="form-hint" bindtap="fillDemo">
+      演示账号：admin / admin123（点击自动填充）
+    </view>
+  </view>
+
+  <view class="login-footer" bindtap="goBack">
+    <text>‹ 返回学生端</text>
+  </view>
+
+</view>

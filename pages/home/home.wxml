@@ -1,0 +1,83 @@
+<view class="container">
+
+  <!-- 通知公告（顶部置顶 + 红点提示） -->
+  <view class="announce-bar" bindtap="gotoAnnounces">
+    <view class="announce-bar-icon">📢</view>
+    <view class="announce-bar-main">
+      <view class="announce-bar-title">通知公告
+        <text wx:if="{{unreadCount > 0}}" class="announce-bar-badge">{{unreadCount}}</text>
+      </view>
+      <view class="announce-bar-preview" wx:if="{{topAnnouncements.length > 0}}">
+        {{topAnnouncements[0].title}}
+      </view>
+      <view class="announce-bar-preview empty" wx:else>暂无新公告</view>
+    </view>
+    <view class="announce-bar-arrow">›</view>
+  </view>
+
+  <!-- 顶部个人信息卡片 -->
+  <view class="profile-card">
+    <view class="profile-row">
+      <view class="avatar">{{student.name[0]}}</view>
+      <view class="profile-info">
+        <view class="profile-name">{{student.name}}</view>
+        <view class="profile-meta">{{student.college}} · {{student.className}}</view>
+      </view>
+    </view>
+    <view class="score-label">{{result.academicYear}} 学年综合测评分</view>
+    <view class="score-big">{{result.weighted}}</view>
+    <view class="score-rank">班级第 {{result.rank.class}} 名 · 学院第 {{result.rank.college}} 名</view>
+  </view>
+
+  <!-- 五育分数卡片 -->
+  <view class="metric-grid">
+    <view class="metric-item" wx:for="{{wuyuTop}}" wx:key="name">
+      <view class="metric-label">{{item.name}}</view>
+      <view class="metric-value" style="color:{{item.color}}">{{item.value}}</view>
+    </view>
+  </view>
+
+  <view class="metric-grid">
+    <view class="metric-item border-item" wx:for="{{wuyuBottom}}" wx:key="name">
+      <view class="metric-label">{{item.name}}</view>
+      <view class="metric-value" style="color:{{item.color}}">{{item.value}}</view>
+    </view>
+  </view>
+
+  <!-- 我的宿舍 -->
+  <view class="card" bindtap="gotoDorm">
+    <view class="card-title">我的宿舍 · 三强三优</view>
+    <view class="dorm-row">
+      <view>
+        <view class="dorm-name">{{dormRating.dorm}}</view>
+        <view class="dorm-leader">宿舍长：{{student.dormLeader}}</view>
+      </view>
+      <view class="dorm-score-box">
+        <view class="dorm-score">{{dormRating.totalScore}}</view>
+        <view class="dorm-level">优秀 · 院级候选</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 近期社区活动 -->
+  <view class="card">
+    <view class="card-title">近期社区活动</view>
+    <view class="activity-item" wx:for="{{activities}}" wx:key="title">
+      {{item.title}} · {{item.location}}
+    </view>
+  </view>
+
+  <!-- 快速操作 -->
+  <view class="action-row">
+    <button class="btn-primary" bindtap="gotoApply">加减分申报</button>
+    <button class="btn-outline" bindtap="gotoReport">查看成长报告</button>
+  </view>
+
+  <!-- 管理员入口（独立登录平台） -->
+  <view class="admin-entry" bindtap="gotoAdminLogin">
+    <text class="admin-entry-icon">⚙</text>
+    <text class="admin-entry-text">管理员入口</text>
+    <text class="admin-entry-arrow">›</text>
+  </view>
+
+</view>

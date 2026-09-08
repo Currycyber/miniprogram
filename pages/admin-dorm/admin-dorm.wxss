@@ -1,0 +1,233 @@
+/* pages/admin-dorm/admin-dorm.wxss */
+.admin-bg {
+  min-height: 100vh;
+  background: #f5f5f7;
+  padding: 24rpx;
+  color: #1a1a1a;
+}
+
+.admin-top {
+  background: linear-gradient(135deg, #26215c 0%, #534ab7 100%);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+.admin-greet { display: flex; align-items: center; }
+.admin-avatar {
+  width: 80rpx; height: 80rpx; line-height: 80rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  text-align: center;
+  font-size: 32rpx; font-weight: 700;
+  margin-right: 20rpx;
+}
+.admin-name { font-size: 32rpx; font-weight: 700; }
+.admin-role { font-size: 22rpx; opacity: 0.85; margin-top: 4rpx; }
+.admin-action {
+  font-size: 24rpx; padding: 8rpx 18rpx;
+  background: rgba(255,255,255,0.2);
+  border-radius: 16rpx;
+  margin-left: 12rpx;
+}
+
+/* 4 metric */
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12rpx;
+  margin-bottom: 24rpx;
+}
+.metric-item {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx 12rpx;
+  text-align: center;
+}
+.metric-label { font-size: 22rpx; color: #888; margin-bottom: 6rpx; }
+.metric-value { font-size: 36rpx; font-weight: 700; color: #1a1a1a; }
+.text-success { color: #534ab7 !important; }
+
+/* card */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 1rpx 4rpx rgba(0,0,0,0.04);
+}
+.card-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+  color: #1a1a1a;
+}
+
+/* 学院汇总 */
+.college-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 26rpx;
+}
+.college-stat-row:last-child { border-bottom: none; }
+.college-stat-name { font-weight: 500; color: #1a1a1a; flex: 1; }
+.college-stat-meta { display: flex; align-items: center; gap: 10rpx; }
+.badge-mini {
+  font-size: 20rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 6rpx;
+  color: #fff;
+}
+.badge-mini.school { background: #534ab7; }
+.badge-mini.college { background: #1989fa; }
+.college-stat-avg { font-size: 22rpx; color: #666; }
+.college-stat-pub {
+  font-size: 22rpx;
+  color: #26215c;
+  background: #F0EDFA;
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+  margin-left: 4rpx;
+}
+
+/* tab */
+.tab-bar {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 8rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 1rpx 4rpx rgba(0,0,0,0.04);
+}
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+  padding: 16rpx 0;
+  border-radius: 12rpx;
+}
+.tab-item.active {
+  background: #26215c;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 学院 filter */
+.filter-bar {
+  display: flex;
+  gap: 12rpx;
+  margin-bottom: 24rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 4rpx;
+}
+.filter-chip {
+  display: inline-block;
+  background: #fff;
+  color: #555;
+  font-size: 24rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid #e5e5ea;
+  flex-shrink: 0;
+}
+.filter-chip.active {
+  background: #26215c;
+  color: #fff;
+  border-color: #26215c;
+}
+
+/* 宿舍卡片 */
+.dorm-card { padding: 24rpx; }
+.dorm-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+.dorm-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.dorm-level {
+  font-size: 22rpx;
+  color: #fff;
+  padding: 4rpx 14rpx;
+  border-radius: 8rpx;
+  font-weight: 600;
+}
+.dorm-meta {
+  font-size: 22rpx;
+  color: #888;
+  margin-bottom: 16rpx;
+}
+.dorm-college { margin-right: 16rpx; }
+.dorm-score-row {
+  display: flex;
+  align-items: center;
+  background: #F8F8FA;
+  border-radius: 12rpx;
+  padding: 16rpx;
+}
+.dorm-total {
+  display: flex;
+  align-items: baseline;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+.dorm-total-num {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #26215c;
+  line-height: 1;
+}
+.dorm-total-unit {
+  font-size: 24rpx;
+  color: #888;
+  margin-left: 4rpx;
+}
+.dorm-dims {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6rpx 16rpx;
+  flex: 1;
+  font-size: 20rpx;
+}
+.dorm-dim {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+}
+.dorm-dim-name { color: #888; }
+.dorm-dim-score { color: #1a1a1a; font-weight: 500; }
+
+/* 一键发布 */
+.action-card { background: linear-gradient(135deg, #fff8e6 0%, #fff4d6 100%); border-left: 6rpx solid #FF9500; }
+.action-title { font-size: 28rpx; font-weight: 600; color: #8B4513; margin-bottom: 8rpx; }
+.action-desc { font-size: 24rpx; color: #6B4423; margin-bottom: 16rpx; line-height: 1.5; }
+.btn-publish {
+  background: #FF9500 !important;
+  color: #fff !important;
+  font-size: 26rpx;
+  border-radius: 12rpx;
+  padding: 18rpx 0;
+  font-weight: 600;
+}
+
+.empty { text-align: center; padding: 60rpx 0; }
+.empty-text { font-size: 26rpx; color: #999; }
+
+.admin-footer {
+  text-align: center;
+  color: #999;
+  font-size: 22rpx;
+  padding: 32rpx 0;
+}

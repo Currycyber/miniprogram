@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/report/report",
+    "pages/dorm/dorm",
+    "pages/score-apply/score-apply",
+    "pages/class-eval/class-eval",
+    "pages/counselor-review/counselor-review",
+    "pages/college-publish/college-publish",
+    "pages/dorm-check/dorm-check",
+    "pages/activity-manage/activity-manage",
+    "pages/stats/stats",
+    "pages/admin-login/admin-login",
+    "pages/admin-dashboard/admin-dashboard",
+    "pages/admin-users/admin-users",
+    "pages/admin-params/admin-params",
+    "pages/admin-announce/admin-announce",
+    "pages/admin-dorm/admin-dorm",
+    "pages/student-announces/student-announces",
+    "pages/student-announce-detail/student-announce-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#26215C",
+    "navigationBarTitleText": "喀大综合素质测评",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#888780",
+    "selectedColor": "#26215C",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "text": "报告"
+      },
+      {
+        "pagePath": "pages/dorm/dorm",
+        "text": "宿舍"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "统计"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

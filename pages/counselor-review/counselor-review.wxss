@@ -1,0 +1,55 @@
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.review-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.review-status {
+  font-size: 22rpx;
+}
+
+.review-detail {
+  font-size: 26rpx;
+  margin-bottom: 8rpx;
+}
+
+.review-evidence {
+  font-size: 24rpx;
+  color: #888780;
+  margin-bottom: 20rpx;
+}
+
+.review-btns {
+  display: flex;
+  gap: 16rpx;
+}
+
+.btn-reject,
+.btn-pass {
+  flex: 1;
+  font-size: 24rpx;
+  padding: 16rpx;
+  border-radius: 16rpx;
+  border: none;
+}
+
+.btn-reject {
+  background: transparent;
+  border: 1rpx solid #eeeeee;
+  color: #888780;
+}
+
+.btn-reject::after,
+.btn-pass::after {
+  border: none;
+}
+
+.btn-pass {
+  background: #185fa5;
+  color: #ffffff;
+}

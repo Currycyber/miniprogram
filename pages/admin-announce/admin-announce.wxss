@@ -1,0 +1,163 @@
+/* pages/admin-announce/admin-announce.wxss */
+
+.admin-bg {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 20rpx 16rpx 80rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部欢迎条 */
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #26215C, #534ab7);
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 22rpx 24rpx;
+  margin-bottom: 16rpx;
+}
+.admin-greet { display: flex; align-items: center; gap: 14rpx; }
+.admin-avatar {
+  width: 64rpx; height: 64rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.admin-name { font-size: 30rpx; font-weight: 600; }
+.admin-role { font-size: 20rpx; opacity: 0.85; margin-top: 4rpx; }
+.admin-actions { display: flex; gap: 16rpx; }
+.admin-action {
+  font-size: 22rpx;
+  padding: 6rpx 14rpx;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8rpx;
+}
+.admin-action.primary {
+  background: #FF9500;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* tab 切换 */
+.filter-tabs {
+  white-space: nowrap;
+  margin-bottom: 14rpx;
+}
+.filter-tab {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  background: #fff;
+  color: #888780;
+  border-radius: 20rpx;
+  margin-right: 12rpx;
+  font-size: 24rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.04);
+}
+.filter-tab-hover { background: #f5f5fa; }
+.filter-tab.active {
+  background: #26215C;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 公告卡片 */
+.ann-list { margin-bottom: 16rpx; }
+.ann-card {
+  background: #fff;
+  border-radius: 14rpx;
+  padding: 18rpx;
+  margin-bottom: 14rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+.ann-card-hover { background: #fafaff; }
+
+.ann-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 12rpx;
+}
+.ann-type {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  color: #fff;
+  flex-shrink: 0;
+}
+.ann-type.type-notice { background: #534ab7; }
+.ann-type.type-urgent { background: #e64340; }
+.ann-type.type-system { background: #1989fa; }
+.ann-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2c2c2a;
+  flex: 1;
+  min-width: 0;
+}
+.ann-content {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ann-meta {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  font-size: 20rpx;
+  color: #888780;
+  margin-bottom: 12rpx;
+}
+.ann-author {
+  color: #534ab7;
+  font-weight: 600;
+}
+.status-pill {
+  margin-left: auto;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+.status-pill.status-draft { background: #f5f5fa; color: #888780; }
+.status-pill.status-published { background: #e8f7ee; color: #07c160; }
+.status-pill.status-offline { background: #f5f5fa; color: #b0b0b0; }
+
+.ann-actions {
+  display: flex;
+  gap: 12rpx;
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 12rpx;
+}
+.action-btn {
+  padding: 8rpx 18rpx;
+  background: #f5f5fa;
+  color: #26215C;
+  font-size: 22rpx;
+  border-radius: 6rpx;
+  text-align: center;
+}
+.action-btn.primary { background: #26215C; color: #fff; }
+.action-btn.danger { background: #fff; color: #e64340; border: 1rpx solid #e64340; }
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 80rpx 0;
+}
+.empty-icon { font-size: 80rpx; margin-bottom: 12rpx; }
+.empty-text { color: #b0b0b0; font-size: 26rpx; }
+
+.admin-footer {
+  text-align: center;
+  font-size: 22rpx;
+  color: #b0b0b0;
+  margin-top: 32rpx;
+}

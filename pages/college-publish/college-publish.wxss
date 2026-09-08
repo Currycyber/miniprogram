@@ -1,0 +1,96 @@
+.flow {
+  display: flex;
+  align-items: center;
+}
+
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72rpx;
+}
+
+.flow-dot {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #ffffff;
+}
+
+.flow-dot.done {
+  background: #1d9e75;
+}
+
+.flow-dot.current {
+  background: #ef9f27;
+}
+
+.flow-label {
+  font-size: 20rpx;
+  margin-top: 8rpx;
+}
+
+.done-text {
+  color: #085041;
+}
+
+.current-text {
+  color: #854f0b;
+}
+
+.flow-line {
+  flex: 1;
+  height: 4rpx;
+  background: #eeeeee;
+  margin: 0 8rpx;
+}
+
+.done-line {
+  background: #1d9e75;
+}
+
+.hint-box {
+  background: #faeeda;
+  border: 1rpx solid #fac775;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  font-size: 24rpx;
+  color: #633806;
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-row {
+  display: flex;
+  padding: 20rpx 28rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  font-size: 26rpx;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-head {
+  background: #fafafa;
+  color: #888780;
+  font-size: 24rpx;
+}
+
+.col {
+  flex: 1;
+}

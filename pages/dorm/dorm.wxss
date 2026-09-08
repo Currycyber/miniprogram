@@ -1,0 +1,54 @@
+.total-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  border: 1rpx solid #eeeeee;
+  padding: 40rpx;
+  margin-bottom: 24rpx;
+  text-align: center;
+}
+
+.total-dorm {
+  font-size: 24rpx;
+  color: #888780;
+}
+
+.total-score {
+  font-size: 96rpx;
+  font-weight: 600;
+  color: #27500a;
+  line-height: 1.2;
+}
+
+.total-level {
+  font-size: 24rpx;
+  color: #27500a;
+}
+
+.dim-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.dim-row:last-child {
+  border-bottom: none;
+}
+
+.dim-name {
+  font-size: 28rpx;
+}
+
+.dim-score {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.warning-box {
+  background: #fcebeb;
+  border: 1rpx solid #f7c1c1;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  font-size: 24rpx;
+  color: #791f1f;
+}

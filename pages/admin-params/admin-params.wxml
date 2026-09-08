@@ -1,0 +1,100 @@
+<view class="admin-bg">
+
+  <!-- 顶部欢迎条 -->
+  <view class="admin-top">
+    <view class="admin-greet">
+      <view class="admin-avatar">P</view>
+      <view class="admin-info">
+        <view class="admin-name">测评参数配置</view>
+        <view class="admin-role">权重 / 规则 / 上限</view>
+      </view>
+    </view>
+    <view class="admin-actions">
+      <text class="admin-action" bindtap="goBack">看板</text>
+    </view>
+  </view>
+
+  <!-- 卡片 1：五育权重 -->
+  <view class="card">
+    <view class="card-title">
+      <text>五育权重（合计必须 = 100）</text>
+      <text class="weight-sum {{weightsValid ? 'ok' : 'err'}}">
+        合计：{{weightsSum}}
+      </text>
+    </view>
+
+    <view class="weight-row" wx:for="{{wuyuMeta}}" wx:key="key">
+      <view class="weight-label">
+        <view class="weight-icon" style="background: {{item.color}};">{{item.icon}}</view>
+        <text class="weight-name">{{item.label}}</text>
+      </view>
+      <view class="weight-control">
+        <slider
+          min="0" max="50" step="1" value="{{weights[item.key]}}"
+          data-key="{{item.key}}"
+          bindchanging="onWeightChange"
+          activeColor="{{item.color}}"
+          block-size="20"
+          show-value="false"
+        />
+      </view>
+      <view class="weight-value">{{weights[item.key]}}%</view>
+    </view>
+
+    <view wx:if="{{!weightsValid}}" class="weight-warn">
+      权重合计 {{weightsSum}} ≠ 100，请调整
+    </view>
+  </view>
+
+  <!-- 卡片 2：加分上限 -->
+  <view class="card">
+    <view class="card-title">加分上限</view>
+
+    <view class="limit-row">
+      <view class="limit-label">每年累计加分上限</view>
+      <view class="limit-control">
+        <slider min="10" max="50" step="1" value="{{limits.yearMax}}" data-key="yearMax" bindchanging="onLimitChange" activeColor="#FF9500" block-size="20" />
+      </view>
+      <view class="limit-value">{{limits.yearMax}} 分</view>
+    </view>
+
+    <view class="limit-row">
+      <view class="limit-label">单类累计加分上限</view>
+      <view class="limit-control">
+        <slider min="3" max="15" step="1" value="{{limits.perCategoryMax}}" data-key="perCategoryMax" bindchanging="onLimitChange" activeColor="#534ab7" block-size="20" />
+      </view>
+      <view class="limit-value">{{limits.perCategoryMax}} 分</view>
+    </view>
+  </view>
+
+  <!-- 卡片 3：加减分规则 -->
+  <view class="card">
+    <view class="card-title">加减分规则（{{rules.length}} 条）</view>
+    <view class="rule-row" wx:for="{{rules}}" wx:key="id">
+      <view class="rule-cat rule-{{item.catKey}}">{{item.category}}</view>
+      <view class="rule-name">{{item.name}}</view>
+      <view class="rule-score {{item.type}}">{{item.score > 0 ? '+' + item.score : item.score}}</view>
+    </view>
+  </view>
+
+  <!-- 卡片 4：修改历史 -->
+  <view class="card">
+    <view class="card-title">修改历史</view>
+    <view class="hist-row" wx:for="{{history}}" wx:key="time">
+      <view class="hist-time">{{item.time}}</view>
+      <view class="hist-meta">
+        <text class="hist-operator">{{item.operator}}</text>
+        <text class="hist-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="action-bar">
+    <button class="btn-reset" bindtap="onReset">恢复默认</button>
+    <button class="btn-save {{(dirty && weightsValid) ? '' : 'disabled'}}" bindtap="onSave">保存修改</button>
+  </view>
+
+  <view class="admin-footer">演示数据 · 仅供答辩展示</view>
+
+</view>

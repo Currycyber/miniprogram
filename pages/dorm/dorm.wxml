@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="page-title">三强三优 · 宿舍评分</view>
+  <view class="page-subtitle">三方独立打分 · 学院 / 宿管 / 团委</view>
+
+  <!-- 总分卡片 -->
+  <view class="total-card">
+    <view class="total-dorm">{{rating.dorm}}</view>
+    <view class="total-score">{{rating.totalScore}}</view>
+    <view class="total-level">优秀 · 已达院级候选线（≥90）</view>
+  </view>
+
+  <!-- 六维明细 -->
+  <view class="card">
+    <view class="card-title">六维得分明细</view>
+    <view class="dim-row" wx:for="{{rating.dimensions}}" wx:key="name">
+      <view class="dim-name">{{item.name}}</view>
+      <view class="dim-score">{{item.score}} / {{item.full}}</view>
+    </view>
+  </view>
+
+  <!-- 一票否决警示 -->
+  <view class="warning-box">
+    注意：若卫生被通报批评 2 次以上，将一票否决评优资格。
+  </view>
+</view>

@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="page-top">
+    <view class="page-title">通知公告</view>
+    <view class="page-sub">共 {{counts.all}} 条 · 未读 {{counts.unread}} 条</view>
+  </view>
+
+  <!-- 4 个状态 tab -->
+  <view class="filter-bar">
+    <view class="filter-chip {{filter === 'all' ? 'active' : ''}}" data-key="all" bindtap="onFilterChange">
+      全部 <text class="chip-num">{{counts.all}}</text>
+    </view>
+    <view class="filter-chip {{filter === 'unread' ? 'active' : ''}}" data-key="unread" bindtap="onFilterChange">
+      未读 <text class="chip-num">{{counts.unread}}</text>
+    </view>
+    <view class="filter-chip {{filter === 'urgent' ? 'active' : ''}}" data-key="urgent" bindtap="onFilterChange">
+      紧急 <text class="chip-num">{{counts.urgent}}</text>
+    </view>
+    <view class="filter-chip {{filter === 'normal' ? 'active' : ''}}" data-key="normal" bindtap="onFilterChange">
+      普通 <text class="chip-num">{{counts.normal}}</text>
+    </view>
+  </view>
+
+  <!-- 公告列表 -->
+  <view wx:if="{{list.length > 0}}">
+    <view class="ann-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="onItemTap" hover-class="ann-item-hover">
+      <view class="ann-type-icon" style="background: {{item.typeMeta.color}};">{{item.typeMeta.icon}}</view>
+      <view class="ann-body">
+        <view class="ann-title">
+          <text wx:if="{{!item.read}}" class="ann-dot"></text>
+          {{item.title}}
+        </view>
+        <view class="ann-content-preview">{{item.content}}</view>
+        <view class="ann-meta">
+          <text class="ann-type-label" style="color: {{item.typeMeta.color}};">{{item.typeLabel}}</text>
+          <text class="ann-time">{{item.publishedAt}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="all-read" bindtap="onMarkAllRead">全部标记为已读</view>
+  </view>
+
+  <view wx:else class="empty">
+    <view class="empty-icon">📭</view>
+    <view class="empty-text">当前分类下暂无公告</view>
+  </view>
+
+</view>

@@ -1,0 +1,193 @@
+/* pages/report/report.wxss */
+
+/* === 学年切换器 === */
+.year-switcher {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 12rpx;
+  padding: 6rpx;
+  margin: 24rpx 0 16rpx;
+  gap: 4rpx;
+}
+.year-tab {
+  flex: 1;
+  text-align: center;
+  padding: 18rpx 0;
+  font-size: 26rpx;
+  color: #888780;
+  border-radius: 8rpx;
+  transition: all 0.25s ease;
+}
+.year-tab.active {
+  background: #26215C;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2rpx 6rpx rgba(38, 33, 92, 0.25);
+}
+.year-tab-hover {
+  background: #e0e0e0;
+}
+.year-tab.active.year-tab-hover {
+  background: #1a1645;
+}
+
+/* === 综合分卡片 === */
+.score-card {
+  background: linear-gradient(135deg, #26215C 0%, #534ab7 100%);
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx 24rpx;
+  text-align: center;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(38, 33, 92, 0.18);
+}
+.score-label {
+  font-size: 26rpx;
+  opacity: 0.85;
+  letter-spacing: 2rpx;
+}
+.score-value {
+  font-size: 88rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 8rpx 0;
+}
+.score-rank {
+  font-size: 24rpx;
+  opacity: 0.85;
+}
+
+/* === 雷达图卡片 === */
+.radar-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16rpx;
+}
+.radar-canvas {
+  width: 600rpx;
+  height: 440rpx;
+}
+
+/* === 五育明细行 === */
+.dim-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 12rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  transition: background 0.15s;
+}
+.dim-row:last-child {
+  border-bottom: none;
+}
+.dim-row-hover {
+  background: #f5f5fa;
+}
+.dim-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+.dim-name {
+  font-size: 30rpx;
+  color: #2c2c2a;
+  font-weight: 500;
+}
+.dim-weight {
+  font-size: 22rpx;
+  color: #888780;
+}
+.dim-right {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.dim-score {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #26215C;
+}
+.dim-arrow {
+  font-size: 36rpx;
+  color: #888780;
+  line-height: 1;
+}
+
+/* === 弹层 === */
+.modal-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.modal-mask.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-panel {
+  width: 80%;
+  max-width: 600rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 36rpx 32rpx;
+  transform: translateY(20rpx) scale(0.96);
+  transition: transform 0.25s ease;
+}
+.modal-mask.show .modal-panel {
+  transform: translateY(0) scale(1);
+}
+.modal-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #26215C;
+}
+.modal-subtitle {
+  font-size: 22rpx;
+  color: #888780;
+  margin: 8rpx 0 24rpx;
+}
+.modal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #2c2c2a;
+}
+.modal-num {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.modal-divider {
+  height: 1rpx;
+  background: #eeeeee;
+  margin: 8rpx 0;
+}
+.modal-total {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.modal-total .modal-num {
+  font-size: 36rpx;
+  color: #26215C;
+}
+.modal-btn {
+  margin-top: 28rpx;
+  text-align: center;
+  padding: 22rpx 0;
+  background: #26215C;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  transition: background 0.15s;
+}
+.modal-btn-hover {
+  background: #1a1645;
+}

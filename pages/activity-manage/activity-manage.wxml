@@ -1,0 +1,55 @@
+<view class="container">
+
+  <!-- 统计 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">进行中</view>
+      <view class="metric-value text-info">8</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">总报名</view>
+      <view class="metric-value">356</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">总打卡</view>
+      <view class="metric-value text-success">298</view>
+    </view>
+  </view>
+
+  <view class="section-title">进行中的活动</view>
+
+  <!-- 活动卡片 -->
+  <view class="card" wx:for="{{activities}}" wx:key="title">
+    <view class="act-title">{{item.title}}</view>
+    <view class="act-meta">{{item.location}} · {{item.time}}</view>
+    <view class="act-progress-label">
+      <text>报名 {{item.registered}} / {{item.capacity}}</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width:{{item.percent}}%"></view>
+    </view>
+    <view class="act-foot">
+      <text class="text-success">打卡 {{item.signed}} 人</text>
+      <text class="text-muted">可获劳育 {{item.points}} 分</text>
+    </view>
+  </view>
+
+  <!-- 新建活动 -->
+  <view class="card">
+    <view class="card-title">新建活动</view>
+    <view class="form-label">活动名称</view>
+    <input class="form-input" placeholder="如：劳动周 · 爱国卫生运动" value="{{form.title}}" bindinput="onTitleInput" />
+    <view class="form-label">活动类型</view>
+    <view class="tag-group">
+      <view class="tag {{form.type === '讲座' ? 'tag-active' : ''}}" bindtap="selectType" data-type="讲座">讲座</view>
+      <view class="tag {{form.type === '志愿' ? 'tag-active' : ''}}" bindtap="selectType" data-type="志愿">志愿</view>
+      <view class="tag {{form.type === '实践' ? 'tag-active' : ''}}" bindtap="selectType" data-type="实践">实践</view>
+      <view class="tag {{form.type === '比赛' ? 'tag-active' : ''}}" bindtap="selectType" data-type="比赛">比赛</view>
+    </view>
+    <view class="form-label">可获劳育分</view>
+    <input class="form-input" type="number" value="{{form.points}}" bindinput="onPointsInput" />
+  </view>
+
+  <button class="btn-primary" bindtap="publish">发布活动</button>
+
+</view>

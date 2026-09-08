@@ -1,0 +1,77 @@
+<view class="container">
+
+  <!-- 审核流转状态 -->
+  <view class="card">
+    <view class="card-title">审核流转状态</view>
+    <view class="flow">
+      <view class="flow-step">
+        <view class="flow-dot done">✓</view>
+        <view class="flow-label done-text">班委</view>
+      </view>
+      <view class="flow-line done-line"></view>
+      <view class="flow-step">
+        <view class="flow-dot done">✓</view>
+        <view class="flow-label done-text">辅导员</view>
+      </view>
+      <view class="flow-line done-line"></view>
+      <view class="flow-step">
+        <view class="flow-dot done">✓</view>
+        <view class="flow-label done-text">学院</view>
+      </view>
+      <view class="flow-line"></view>
+      <view class="flow-step">
+        <view class="flow-dot current">!</view>
+        <view class="flow-label current-text">公示</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提示 -->
+  <view class="hint-box">当前在公示阶段：公示期不少于 3 天，期间学生可提出质疑，辅导员负责核实。</view>
+
+  <!-- 统计 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">参与测评</view>
+      <view class="metric-value">1280</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">已公示</view>
+      <view class="metric-value text-success">1204</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">质疑申诉</view>
+      <view class="metric-value text-danger">3</view>
+    </view>
+  </view>
+
+  <!-- 公示名单 -->
+  <view class="section-title">公示名单（班级概览）</view>
+  <view class="card table-card">
+    <view class="table-row table-head">
+      <text class="col">班级</text>
+      <text class="col">平均分</text>
+      <text class="col">状态</text>
+    </view>
+    <view class="table-row">
+      <text class="col">21思政1班</text>
+      <text class="col">78.4</text>
+      <text class="col text-success">已公示</text>
+    </view>
+    <view class="table-row">
+      <text class="col">21思政2班</text>
+      <text class="col">76.9</text>
+      <text class="col text-warning">公示中</text>
+    </view>
+    <view class="table-row">
+      <text class="col">22思政1班</text>
+      <text class="col">—</text>
+      <text class="col text-muted">待审核</text>
+    </view>
+  </view>
+
+  <button class="btn-primary" bindtap="publishAll">发布全院公示</button>
+  <view style="height:20rpx"></view>
+  <button class="btn-outline" bindtap="reportToParty">报党委学生工作部备案</button>
+
+</view>

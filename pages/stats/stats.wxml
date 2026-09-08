@@ -1,0 +1,77 @@
+<view class="container">
+
+  <!-- 全校概览 -->
+  <view class="overview-card">
+    <view class="overview-label">全校 {{currentYear}} 学年综合测评</view>
+    <view class="overview-num">{{stats.totalStudents}} 人</view>
+    <view class="overview-meta">覆盖 10 个社区 · 3 校区 · 36 栋宿舍</view>
+  </view>
+
+  <!-- 学年切换 -->
+  <view class="year-tabs">
+    <view
+      class="year-tab {{yearIndex === idx ? 'active' : ''}}"
+      wx:for="{{years}}" wx:key="*this"
+      wx:for-index="idx"
+      data-idx="{{idx}}"
+      bindtap="onYearChange"
+      hover-class="year-tab-hover"
+    >{{item}}</view>
+  </view>
+
+  <!-- 指标 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">测评完成率</view>
+      <view class="metric-value text-success">{{stats.completionRate}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">平均综合分</view>
+      <view class="metric-value">{{stats.avgScore}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">院级文明宿舍</view>
+      <view class="metric-value text-success">{{stats.collegeDorms}} 间</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">校级文明宿舍</view>
+      <view class="metric-value text-success">{{stats.schoolDorms}} 间</view>
+    </view>
+  </view>
+
+  <!-- 各学院平均分（可点击高亮） -->
+  <view class="section-title">各学院平均综合分（{{currentYear}}，点击切换雷达图）</view>
+  <view class="card">
+    <view
+      class="college-row {{item.highlighted ? 'highlighted' : ''}}"
+      wx:for="{{colleges}}" wx:key="name"
+      wx:for-index="idx"
+      data-idx="{{idx}}"
+      bindtap="onCollegeTap"
+      hover-class="college-row-hover"
+    >
+      <view class="college-label">
+        <text class="college-rank">{{idx + 1}}</text>
+        <text class="college-name {{item.highlighted ? 'highlighted' : ''}}">{{item.name}}</text>
+      </view>
+      <view class="college-bar">
+        <view class="college-fill {{item.highlighted ? 'highlighted' : ''}}" style="width: {{item.weighted}}%;"></view>
+      </view>
+      <view class="college-score">{{item.weighted}}</view>
+    </view>
+  </view>
+
+  <!-- 五育雷达图（联动显示） -->
+  <view class="section-title">{{radarTitle}}</view>
+  <view class="card radar-card">
+    <canvas type="2d" id="radar" class="radar-canvas"></canvas>
+  </view>
+
+  <!-- 已选学院提示 + 重置 -->
+  <view wx:if="{{selectedIdx >= 0}}" class="selection-tip" bindtap="onResetSelection">
+    <text>已选中 {{colleges[selectedIdx].name}} · 点击此处返回全校视图</text>
+  </view>
+
+  <button class="btn-outline" bindtap="exportExcel">导出 {{currentYear}} 全校测评报表（Excel）</button>
+
+</view>

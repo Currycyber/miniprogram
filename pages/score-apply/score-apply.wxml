@@ -1,0 +1,61 @@
+<view class="container">
+
+  <!-- 测评维度 -->
+  <view class="card">
+    <view class="form-label">测评维度</view>
+    <view class="tag-group">
+      <view class="tag {{category === 'moral' ? 'tag-active' : ''}}" bindtap="selectCategory" data-cat="moral">德育</view>
+      <view class="tag {{category === 'intellectual' ? 'tag-active' : ''}}" bindtap="selectCategory" data-cat="intellectual">智育</view>
+      <view class="tag {{category === 'physical' ? 'tag-active' : ''}}" bindtap="selectCategory" data-cat="physical">体育</view>
+      <view class="tag {{category === 'aesthetic' ? 'tag-active' : ''}}" bindtap="selectCategory" data-cat="aesthetic">美育</view>
+      <view class="tag {{category === 'labor' ? 'tag-active' : ''}}" bindtap="selectCategory" data-cat="labor">劳育</view>
+    </view>
+  </view>
+
+  <!-- 加减分类型 -->
+  <view class="card">
+    <view class="form-label">加减分类型</view>
+    <view class="tag-group">
+      <view class="tag tag-add" bindtap="selectType" data-type="add">加分</view>
+      <view class="tag" bindtap="selectType" data-type="deduct">减分（由老师/班委录入）</view>
+    </view>
+  </view>
+
+  <!-- 加分项目 -->
+  <view class="card">
+    <view class="form-label">加分项目（对应测评办法条款）</view>
+    <picker range="{{itemOptions}}" range-key="name" bindchange="selectItem">
+      <view class="picker-box">
+        <text>{{selectedItem.name || '请选择加分项目'}}</text>
+        <text class="picker-arrow">▾</text>
+      </view>
+    </picker>
+    <view class="form-hint" wx:if="{{selectedItem.basis}}">依据：{{selectedItem.basis}}</view>
+  </view>
+
+  <!-- 上传证明 -->
+  <view class="card">
+    <view class="form-label">上传证明材料（证书 / 名单 / 照片）</view>
+    <view class="upload-group">
+      <view class="upload-add" bindtap="chooseImage">
+        <text class="upload-plus">＋</text>
+        <text class="upload-text">添加图片</text>
+      </view>
+      <view class="upload-item" wx:for="{{images}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" class="upload-img"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 补充说明 -->
+  <view class="card">
+    <view class="form-label">补充说明（选填）</view>
+    <textarea class="form-textarea" placeholder="填写获奖时间、等级等信息" value="{{desc}}" bindinput="onDescInput"></textarea>
+  </view>
+
+  <!-- 提示 -->
+  <view class="hint-box">提示：同类项目只计最高分，不重复累计；提交后由班委、辅导员逐级审核。</view>
+
+  <button class="btn-primary" bindtap="submit">提交申报</button>
+
+</view>

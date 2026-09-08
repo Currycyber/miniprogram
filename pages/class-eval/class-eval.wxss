@@ -1,0 +1,102 @@
+.class-header {
+  background: #eeedfe;
+  border: 1rpx solid #cecbf6;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+}
+
+.class-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #3c3489;
+}
+
+.class-sub {
+  font-size: 24rpx;
+  color: #534ab7;
+  margin-top: 8rpx;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #888780;
+  margin-bottom: 12rpx;
+}
+
+.progress-bar {
+  height: 16rpx;
+  border-radius: 8rpx;
+  background: #f1efe8;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #7f77dd;
+}
+
+.progress-hint {
+  font-size: 24rpx;
+  color: #bbbbbb;
+  margin-top: 12rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.review-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.review-status {
+  font-size: 22rpx;
+}
+
+.review-detail {
+  font-size: 26rpx;
+  color: #888780;
+}
+
+.review-btns {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+.btn-reject,
+.btn-pass {
+  flex: 1;
+  font-size: 24rpx;
+  padding: 16rpx;
+  border-radius: 16rpx;
+  border: none;
+}
+
+.btn-reject {
+  background: transparent;
+  border: 1rpx solid #eeeeee;
+  color: #888780;
+}
+
+.btn-reject::after,
+.btn-pass::after {
+  border: none;
+}
+
+.btn-pass {
+  background: #534ab7;
+  color: #ffffff;
+}

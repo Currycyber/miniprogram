@@ -1,0 +1,202 @@
+.profile-card {
+  background: #26215c;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  color: #ffffff;
+  margin-bottom: 24rpx;
+}
+
+/* 顶部通知公告条 */
+.announce-bar {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #fff4e6 0%, #ffe0b2 100%);
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+  margin-bottom: 24rpx;
+  border-left: 6rpx solid #FF9500;
+  box-shadow: 0 2rpx 8rpx rgba(255, 149, 0, 0.1);
+}
+.announce-bar-icon {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+  line-height: 1;
+}
+.announce-bar-main {
+  flex: 1;
+  min-width: 0;
+}
+.announce-bar-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #8B4513;
+  margin-bottom: 4rpx;
+  display: flex;
+  align-items: center;
+}
+.announce-bar-badge {
+  display: inline-block;
+  background: #FF3B30;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 700;
+  padding: 2rpx 10rpx;
+  border-radius: 20rpx;
+  margin-left: 12rpx;
+  min-width: 28rpx;
+  text-align: center;
+  line-height: 1.4;
+}
+.announce-bar-preview {
+  font-size: 24rpx;
+  color: #6B4423;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.announce-bar-preview.empty {
+  color: #B8956B;
+  font-style: italic;
+}
+.announce-bar-arrow {
+  font-size: 36rpx;
+  color: #B8956B;
+  margin-left: 12rpx;
+  line-height: 1;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: #534ab7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.profile-name {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.profile-meta {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.score-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-top: 28rpx;
+}
+
+.score-big {
+  font-size: 68rpx;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.score-rank {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-top: 8rpx;
+}
+
+.border-item {
+  background: #ffffff;
+  border: 1rpx solid #eeeeee;
+}
+
+.card-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+
+.dorm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dorm-name {
+  font-size: 28rpx;
+}
+
+.dorm-leader {
+  font-size: 24rpx;
+  color: #888780;
+  margin-top: 6rpx;
+}
+
+.dorm-score-box {
+  text-align: right;
+}
+
+.dorm-score {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #27500a;
+}
+
+.dorm-level {
+  font-size: 22rpx;
+  color: #27500a;
+}
+
+.activity-item {
+  font-size: 26rpx;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.action-row {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 8rpx;
+}
+
+.action-row .btn-primary,
+.action-row .btn-outline {
+  flex: 1;
+}
+
+/* 管理员入口 */
+.admin-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  margin-top: 32rpx;
+  padding: 20rpx 0;
+  background: rgba(38, 33, 92, 0.05);
+  color: #888780;
+  font-size: 24rpx;
+  border-radius: 12rpx;
+  transition: background 0.15s;
+}
+.admin-entry:active {
+  background: rgba(38, 33, 92, 0.1);
+}
+.admin-entry-icon {
+  font-size: 28rpx;
+}
+.admin-entry-text {
+  letter-spacing: 1rpx;
+}
+.admin-entry-arrow {
+  font-size: 30rpx;
+  line-height: 1;
+}

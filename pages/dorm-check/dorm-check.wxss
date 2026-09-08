@@ -1,0 +1,100 @@
+.dorm-header {
+  background: #eaf3de;
+  border: 1rpx solid #c0dd97;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+}
+
+.dorm-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #27500a;
+}
+
+.dorm-sub {
+  font-size: 24rpx;
+  color: #3b6d11;
+  margin-top: 8rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.item-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.item-score {
+  font-size: 24rpx;
+}
+
+.item-desc {
+  font-size: 24rpx;
+  color: #bbbbbb;
+  margin-bottom: 16rpx;
+}
+
+.option-group {
+  display: flex;
+  gap: 16rpx;
+}
+
+.option {
+  flex: 1;
+  text-align: center;
+  font-size: 24rpx;
+  padding: 14rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #eeeeee;
+  color: #888780;
+}
+
+.option-active {
+  background: #eaf3de;
+  color: #27500a;
+  border-color: #c0dd97;
+}
+
+.form-label {
+  font-size: 24rpx;
+  color: #888780;
+  margin-bottom: 16rpx;
+}
+
+.upload-group {
+  display: flex;
+  gap: 20rpx;
+}
+
+.upload-add {
+  width: 152rpx;
+  height: 152rpx;
+  border: 1rpx dashed #cccccc;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #bbbbbb;
+}
+
+.upload-plus {
+  font-size: 44rpx;
+  line-height: 1;
+}
+
+.upload-text {
+  font-size: 20rpx;
+}

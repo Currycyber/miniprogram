@@ -1,0 +1,100 @@
+<view class="container">
+
+  <view class="page-title">个人成长报告</view>
+  <view class="page-subtitle">五育均衡度雷达图 · {{currentYear}} 学年</view>
+
+  <!-- 学年切换器 -->
+  <view class="year-switcher">
+    <view
+      wx:for="{{yearOptions}}"
+      wx:key="year"
+      class="year-tab {{item.active ? 'active' : ''}}"
+      data-year="{{item.year}}"
+      hover-class="year-tab-hover"
+      bindtap="switchYear"
+    >{{item.year}}</view>
+  </view>
+
+  <!-- 综合分卡片 -->
+  <view class="score-card">
+    <view class="score-label">学年综合分</view>
+    <view class="score-value">{{result.weighted}}</view>
+    <view class="score-rank">
+      班级第 {{result.rank.class}} · 学院第 {{result.rank.college}} · 校级第 {{result.rank.school}}
+    </view>
+  </view>
+
+  <!-- 雷达图 -->
+  <view class="card radar-card">
+    <canvas type="2d" id="radar" class="radar-canvas"></canvas>
+  </view>
+
+  <!-- 加减分统计 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">加分项目</view>
+      <view class="metric-value">{{addCount}} 项</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">减分项目</view>
+      <view class="metric-value text-danger">{{deductCount}} 项</view>
+    </view>
+  </view>
+
+  <!-- 五育明细（可点击） -->
+  <view class="card">
+    <view class="card-title">五育得分明细（点击查看）</view>
+    <view
+      class="dim-row"
+      wx:for="{{dimensions}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      hover-class="dim-row-hover"
+      bindtap="showDimensionDetail"
+    >
+      <view class="dim-left">
+        <text class="dim-name">{{item.name}}</text>
+        <text class="dim-weight">权重 {{item.weight}}</text>
+      </view>
+      <view class="dim-right">
+        <text class="dim-score">{{item.total}}</text>
+        <text class="dim-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 明细弹层 -->
+  <view
+    class="modal-mask {{detail.visible ? 'show' : ''}}"
+    bindtap="closeDetail"
+    wx:if="{{detail.visible}}"
+  >
+    <view class="modal-panel" catchtap="noop">
+      <view class="modal-title">{{detail.name}} 测评明细</view>
+      <view class="modal-subtitle">权重 {{detail.weight}} · 依据《喀什大学学生综合素质测评办法》</view>
+
+      <view class="modal-row">
+        <text>基础分</text>
+        <text class="modal-num">{{detail.data.base}}</text>
+      </view>
+      <view class="modal-row">
+        <text>应加分</text>
+        <text class="modal-num text-success">+{{detail.data.add}}</text>
+      </view>
+      <view class="modal-row">
+        <text>应减分</text>
+        <text class="modal-num text-danger">-{{detail.data.deduct}}</text>
+      </view>
+
+      <view class="modal-divider"></view>
+
+      <view class="modal-row modal-total">
+        <text>最终得分</text>
+        <text class="modal-num text-primary">{{detail.data.total}}</text>
+      </view>
+
+      <view class="modal-btn" hover-class="modal-btn-hover" bindtap="closeDetail">关闭</view>
+    </view>
+  </view>
+
+</view>

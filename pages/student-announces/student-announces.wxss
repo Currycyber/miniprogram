@@ -1,0 +1,143 @@
+/* pages/student-announces/student-announces.wxss */
+.container {
+  padding: 24rpx;
+  min-height: 100vh;
+  background: #f7f7fa;
+}
+
+.page-top {
+  margin-bottom: 24rpx;
+}
+.page-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+.page-sub {
+  font-size: 24rpx;
+  color: #888;
+}
+
+/* filter chips */
+.filter-bar {
+  display: flex;
+  gap: 12rpx;
+  margin-bottom: 24rpx;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  flex: 1;
+  min-width: 140rpx;
+  text-align: center;
+  background: #fff;
+  color: #555;
+  font-size: 26rpx;
+  padding: 16rpx 0;
+  border-radius: 12rpx;
+  border: 1rpx solid #e5e5ea;
+}
+.filter-chip.active {
+  background: #26215c;
+  color: #fff;
+  border-color: #26215c;
+}
+.chip-num {
+  display: inline-block;
+  margin-left: 6rpx;
+  font-size: 22rpx;
+  opacity: 0.85;
+}
+
+/* 公告卡片 */
+.ann-item {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 1rpx 4rpx rgba(0,0,0,0.04);
+}
+.ann-item-hover {
+  background: #f5f5f7;
+}
+.ann-type-icon {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 16rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 700;
+  text-align: center;
+  line-height: 64rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.ann-body {
+  flex: 1;
+  min-width: 0;
+}
+.ann-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+.ann-dot {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #FF3B30;
+  margin-right: 10rpx;
+  flex-shrink: 0;
+}
+.ann-content-preview {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ann-meta {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  color: #999;
+}
+.ann-type-label {
+  font-weight: 600;
+  margin-right: 12rpx;
+}
+.ann-time {
+  color: #999;
+}
+
+/* 全部已读按钮 */
+.all-read {
+  text-align: center;
+  color: #26215c;
+  font-size: 26rpx;
+  padding: 24rpx 0;
+  margin-top: 16rpx;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 200rpx 0;
+}
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+  opacity: 0.4;
+}
+.empty-text {
+  font-size: 26rpx;
+  color: #999;
+}

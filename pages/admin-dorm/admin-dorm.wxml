@@ -1,0 +1,107 @@
+<view class="admin-bg">
+
+  <!-- 顶部欢迎条 -->
+  <view class="admin-top">
+    <view class="admin-greet">
+      <view class="admin-avatar">D</view>
+      <view class="admin-info">
+        <view class="admin-name">宿舍管理</view>
+        <view class="admin-role">三强三优评分 · {{dorms.length}} 间</view>
+      </view>
+    </view>
+    <view class="admin-actions">
+      <text class="admin-action" bindtap="goBack">看板</text>
+    </view>
+  </view>
+
+  <!-- 4 等级统计 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">宿舍总数</view>
+      <view class="metric-value">{{levelStats.total}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label text-success">校级</view>
+      <view class="metric-value text-success">{{levelStats.school}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">院级</view>
+      <view class="metric-value">{{levelStats.college}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">普通</view>
+      <view class="metric-value">{{levelStats.normal}}</view>
+    </view>
+  </view>
+
+  <!-- 6 学院汇总 -->
+  <view class="card">
+    <view class="card-title">学院汇总</view>
+    <view class="college-stat-row" wx:for="{{collegeStats}}" wx:for-item="cs" wx:key="name">
+      <view class="college-stat-name">{{cs.name}}</view>
+      <view class="college-stat-meta">
+        <text class="badge-mini school">校 {{cs.schoolCount}}</text>
+        <text class="badge-mini college">院 {{cs.collegeCount}}</text>
+        <text class="college-stat-avg">{{cs.avg}} 均分</text>
+        <text class="college-stat-pub" data-college="{{cs.name}}" bindtap="onPublishCollege">发布</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 4 tab 切换 -->
+  <view class="tab-bar">
+    <view class="tab-item {{tab === 'all' ? 'active' : ''}}" data-key="all" bindtap="onTabChange">全部 {{levelStats.total}}</view>
+    <view class="tab-item {{tab === 'school' ? 'active' : ''}}" data-key="school" bindtap="onTabChange">校级 {{levelStats.school}}</view>
+    <view class="tab-item {{tab === 'college' ? 'active' : ''}}" data-key="college" bindtap="onTabChange">院级 {{levelStats.college}}</view>
+    <view class="tab-item {{tab === 'candidates' ? 'active' : ''}}" data-key="candidates" bindtap="onTabChange">候选</view>
+  </view>
+
+  <!-- 学院筛选 -->
+  <view class="filter-bar">
+    <view class="filter-chip {{filterCollege === 'all' ? 'active' : ''}}" data-key="all" bindtap="onCollegeFilter">全部</view>
+    <view class="filter-chip {{filterCollege === '马克思主义学院' ? 'active' : ''}}" data-key="马克思主义学院" bindtap="onCollegeFilter">马院</view>
+    <view class="filter-chip {{filterCollege === '数学与统计学院' ? 'active' : ''}}" data-key="数学与统计学院" bindtap="onCollegeFilter">数统</view>
+    <view class="filter-chip {{filterCollege === '物理与电子学院' ? 'active' : ''}}" data-key="物理与电子学院" bindtap="onCollegeFilter">物电</view>
+    <view class="filter-chip {{filterCollege === '化学与环境学院' ? 'active' : ''}}" data-key="化学与环境学院" bindtap="onCollegeFilter">化环</view>
+    <view class="filter-chip {{filterCollege === '生命科学与技术学院' ? 'active' : ''}}" data-key="生命科学与技术学院" bindtap="onCollegeFilter">生科</view>
+    <view class="filter-chip {{filterCollege === '信息工程学院' ? 'active' : ''}}" data-key="信息工程学院" bindtap="onCollegeFilter">信工</view>
+  </view>
+
+  <!-- 宿舍列表 -->
+  <view class="card dorm-card" wx:for="{{dorms}}" wx:for-item="d" wx:key="id">
+    <view class="dorm-card-head">
+      <view class="dorm-name">{{d.name}}</view>
+      <view class="dorm-level" style="background: {{d.levelMeta.color}};">{{d.levelMeta.label}}</view>
+    </view>
+    <view class="dorm-meta">
+      <text class="dorm-college">{{d.college}}</text>
+      <text class="dorm-leader">宿舍长：{{d.leader}}</text>
+    </view>
+    <view class="dorm-score-row">
+      <view class="dorm-total">
+        <text class="dorm-total-num">{{d.total}}</text>
+        <text class="dorm-total-unit">/100</text>
+      </view>
+      <view class="dorm-dims">
+        <view class="dorm-dim" wx:for="{{d.dims}}" wx:for-item="s" wx:for-index="i" wx:key="*this">
+          <view class="dorm-dim-name">{{DIM_NAMES[i]}}</view>
+          <view class="dorm-dim-score">{{s}}/{{DIM_FULL[i]}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 一键发布 -->
+  <view wx:if="{{tab === 'candidates' && candidates.length > 0}}" class="card action-card">
+    <view class="action-title">批量操作</view>
+    <view class="action-desc">将 {{candidates.length}} 个校级文明宿舍向全校发布公示</view>
+    <button class="btn-publish" bindtap="onPublishSchool">一键发布校级名单</button>
+  </view>
+
+  <view class="empty" wx:if="{{dorms.length === 0}}">
+    <view class="empty-text">当前筛选下无宿舍</view>
+  </view>
+
+  <view class="admin-footer">演示数据 · 仅供答辩展示</view>
+
+</view>

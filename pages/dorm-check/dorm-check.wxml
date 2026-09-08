@@ -1,0 +1,45 @@
+<view class="container">
+
+  <!-- 宿舍信息 -->
+  <view class="dorm-header">
+    <view class="dorm-title">3号楼 201 宿舍</view>
+    <view class="dorm-sub">新泉社区3 · 楼长：李老师 · 今日检查</view>
+  </view>
+
+  <view class="section-title">检查维度（三强三优指标体系）</view>
+
+  <!-- 检查项 -->
+  <view class="card" wx:for="{{items}}" wx:key="name">
+    <view class="item-header">
+      <text class="item-name">{{item.name}}</text>
+      <text class="item-score {{item.deducted ? 'text-danger' : 'text-success'}}">{{item.deducted ? '已扣 ' + item.deducted + ' 分' : '满分'}}</text>
+    </view>
+    <view class="item-desc">{{item.desc}}</view>
+    <view class="option-group">
+      <view
+        wx:for="{{item.options}}"
+        wx:for-item="opt"
+        wx:key="label"
+        class="option {{opt.active ? 'option-active' : ''}}"
+        data-index="{{index}}"
+        data-opt-index="{{index}}"
+        data-opt-label="{{opt.label}}"
+        bindtap="selectOption"
+      >{{opt.label}}</view>
+    </view>
+  </view>
+
+  <!-- 拍照留证 -->
+  <view class="card">
+    <view class="form-label">拍照留证（可选）</view>
+    <view class="upload-group">
+      <view class="upload-add" bindtap="takePhoto">
+        <text class="upload-plus">＋</text>
+        <text class="upload-text">拍照</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="btn-primary" bindtap="submit">提交评分（本次 {{totalScore}} 分）</button>
+
+</view>

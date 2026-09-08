@@ -1,0 +1,76 @@
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.act-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.act-meta {
+  font-size: 24rpx;
+  color: #888780;
+  margin-top: 8rpx;
+}
+
+.act-progress-label {
+  font-size: 22rpx;
+  color: #888780;
+  margin: 16rpx 0 8rpx;
+}
+
+.progress-bar {
+  height: 12rpx;
+  border-radius: 6rpx;
+  background: #f1efe8;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #378add;
+}
+
+.act-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16rpx;
+  font-size: 22rpx;
+}
+
+.form-label {
+  font-size: 24rpx;
+  color: #888780;
+  margin: 20rpx 0 12rpx;
+}
+
+.form-input {
+  width: 100%;
+  border: 1rpx solid #eeeeee;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+
+.tag-group {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 24rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #eeeeee;
+  color: #888780;
+}
+
+.tag-active {
+  background: #26215c;
+  color: #ffffff;
+  border-color: #26215c;
+}

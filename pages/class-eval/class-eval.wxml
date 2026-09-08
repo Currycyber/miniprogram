@@ -1,0 +1,56 @@
+<view class="container">
+
+  <!-- 班级信息 -->
+  <view class="class-header">
+    <view class="class-title">21思政1班 · 2023-2024 学年</view>
+    <view class="class-sub">测评小组：辅导员 + 班主任 + 班委 + 学生代表（7 人）</view>
+  </view>
+
+  <!-- 统计 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">班级人数</view>
+      <view class="metric-value">{{totalStudents}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">已提交材料</view>
+      <view class="metric-value text-success">{{submitted}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">待核对</view>
+      <view class="metric-value text-warning">{{pending}}</view>
+    </view>
+  </view>
+
+  <!-- 收集进度 -->
+  <view class="card">
+    <view class="card-title">材料收集进度</view>
+    <view class="progress-label">
+      <text>已收集 {{submitted}} / {{totalStudents}} 人</text>
+      <text>{{progressPercent}}%</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width:{{progressPercent}}%"></view>
+    </view>
+    <view class="progress-hint">剩余 {{remaining}} 人未提交，可一键提醒</view>
+  </view>
+
+  <!-- 待核对申报 -->
+  <view class="section-title">待核对申报</view>
+  <view class="card" wx:for="{{reviews}}" wx:key="id">
+    <view class="review-header">
+      <text class="review-name">{{item.name}} · {{item.category}}</text>
+      <text class="review-status {{item.status === 'pending' ? 'text-warning' : 'text-success'}}">{{item.status === 'pending' ? '待核对' : '已核对'}}</text>
+    </view>
+    <view class="review-detail">{{item.detail}}</view>
+    <view class="review-btns" wx:if="{{item.status === 'pending'}}">
+      <button class="btn-reject" data-id="{{item.id}}" bindtap="reject">退回</button>
+      <button class="btn-pass" data-id="{{item.id}}" bindtap="pass">确认通过</button>
+    </view>
+  </view>
+
+  <button class="btn-outline" bindtap="remindAll">批量提醒未提交同学</button>
+  <view style="height:20rpx"></view>
+  <button class="btn-primary" bindtap="submitToCounselor">汇总上报辅导员</button>
+
+</view>

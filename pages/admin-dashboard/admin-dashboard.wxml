@@ -1,0 +1,102 @@
+<view class="admin-bg">
+  <view class="admin-top">
+    <view class="admin-greet">
+      <view class="admin-avatar">A</view>
+      <view class="admin-info">
+        <view class="admin-name">{{user.name || '管理员'}}</view>
+        <view class="admin-role">校级数据看板</view>
+      </view>
+    </view>
+    <view class="admin-actions">
+      <text class="admin-action" bindtap="goBack">学生端</text>
+      <text class="admin-action" bindtap="onLogout">退出</text>
+    </view>
+  </view>
+
+  <!-- 4 大核心指标 -->
+  <view class="metric-grid">
+    <view class="metric-item">
+      <view class="metric-label">在校学生</view>
+      <view class="metric-value">{{metrics.totalStudents}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">测评完成率</view>
+      <view class="metric-value text-success">{{metrics.completionRate}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">平均综合分</view>
+      <view class="metric-value">{{metrics.avgScore}}</view>
+    </view>
+    <view class="metric-item">
+      <view class="metric-label">覆盖学院</view>
+      <view class="metric-value">{{metrics.collegeCount}} 个</view>
+    </view>
+  </view>
+
+  <!-- 五育均衡度 -->
+  <view class="card">
+    <view class="card-title">全校五育均衡度（2023-2024 学年平均）</view>
+    <view class="radar-wrap">
+      <canvas type="2d" id="adminRadar" class="radar-canvas"></canvas>
+    </view>
+  </view>
+
+  <!-- 管理模块入口 -->
+  <view class="card module-card">
+    <view class="card-title">管理模块</view>
+    <view class="module-grid">
+      <view class="module-item enabled" data-target="users" bindtap="goModule" hover-class="module-item-hover">
+        <view class="module-icon">U</view>
+        <view class="module-name">用户管理</view>
+        <view class="module-sub">人员 / 角色</view>
+      </view>
+      <view class="module-item enabled" data-target="params" bindtap="goModule" hover-class="module-item-hover">
+        <view class="module-icon">P</view>
+        <view class="module-name">参数配置</view>
+        <view class="module-sub">权重 / 规则</view>
+      </view>
+      <view class="module-item enabled" data-target="announce" bindtap="goModule" hover-class="module-item-hover">
+        <view class="module-icon">A</view>
+        <view class="module-name">公告发布</view>
+        <view class="module-sub">通知 / 公告</view>
+      </view>
+      <view class="module-item enabled" data-target="dorm" bindtap="goModule" hover-class="module-item-hover">
+        <view class="module-icon">D</view>
+        <view class="module-name">宿舍管理</view>
+        <view class="module-sub">宿舍评分</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 学院排名（可点击高亮） -->
+  <view class="card">
+    <view class="card-title">学院平均综合分排名（点击高亮）</view>
+    <view class="college-row" wx:for="{{colleges}}" wx:key="name" data-idx="{{index}}" bindtap="onCollegeTap" hover-class="college-row-hover">
+      <view class="college-label">
+        <text class="college-rank">{{index + 1}}</text>
+        <text class="college-name {{item.highlighted ? 'highlighted' : ''}}">{{item.name}}</text>
+      </view>
+      <view class="college-bar">
+        <view class="college-fill {{item.highlighted ? 'highlighted' : ''}}" style="width: {{item.avg}}%;"></view>
+      </view>
+      <view class="college-score">{{item.avg}}</view>
+    </view>
+  </view>
+
+  <!-- 宿舍评分总览 -->
+  <view class="card">
+    <view class="card-title">宿舍评分总览</view>
+    <view class="dorm-row">
+      <view class="dorm-stat">
+        <view class="dorm-num text-success">{{metrics.collegeDorms || 412}}</view>
+        <view class="dorm-label">院级文明宿舍</view>
+      </view>
+      <view class="dorm-stat">
+        <view class="dorm-num text-success">{{metrics.schoolDorms || 100}}</view>
+        <view class="dorm-label">校级文明宿舍</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="admin-footer">演示数据 · 仅供答辩展示</view>
+</view>
